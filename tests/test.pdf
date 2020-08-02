@@ -1,6 +1,6 @@
 %!PS-Adobe-3.0
 %%Creator: groff version 1.22.4
-%%CreationDate: Sun Aug  2 16:00:04 2020
+%%CreationDate: Sun Aug  2 16:52:49 2020
 %%DocumentNeededResources: font Times-Bold
 %%+ font Times-Roman
 %%+ font Courier-Oblique
@@ -246,7 +246,12 @@ BP
 /Courier-Bold@0 SF(my)108 165.6 Q 0 0.392 0 Cr/F4 10/Courier@0 SF
 ($version)6 E 0 Cg(=)6 E 1 0 0 Cr('This is a source code block')6 E 0 Cg
 (;)A 0 0 1 Cr F3(print)108 177.6 Q 0 0.392 0 Cr F4($line)6 E 0 Cg(;)A 0
-Cg EP
+0.392 0 Cr F1(just mak)72 223.2 Q 2.5(es)-.1 G(ure this prints)-2.5 E
+0.647 0.165 0.165 Cr F2(#! /usr/bin/env perl)108 265.2 Q 0 0 1 Cr F3(my)
+108 289.2 Q 0 0.392 0 Cr F4($version)6 E 0 Cg(=)6 E 1 0 0 Cr
+('This is a source code block')6 E 0 Cg(;)A 0 0 1 Cr F3(print)108 301.2
+Q 0 0.392 0 Cr F4($line)6 E 0 Cg(;)A 0 0.392 0 Cr F1(just mak)72 346.8 Q
+2.5(es)-.1 G(ure this prints)-2.5 E 0 Cg EP
 %%Trailer
 end
 %%EOF
