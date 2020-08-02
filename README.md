@@ -1,6 +1,6 @@
 # ghighlight
 
-This is a groff preprocessor written in perl that will highlight your code for you. All of the syntax highlighting is done by [GNU Source-highlight][https://www.gnu.org/software/src-highlite/#mozTocId323328] This way the highlighting can be modified and customized as needed. Currently the only macros supported are mm and ms macros.
+This is a groff preprocessor written in perl that will highlight your code for you. All of the syntax highlighting is done by [GNU Source-highlight](https://www.gnu.org/software/src-highlite/#mozTocId323328) This way the highlighting can be modified and customized as needed. Currently the only macros supported are mm and ms macros.
 
 
 ### NOTE
