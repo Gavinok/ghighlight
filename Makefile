@@ -1,21 +1,18 @@
 #.SUFFIXES:
-.SUFFIXES: .mm .pdf
+.SUFFIXES: .ms .pdf
 
-TESTSRCS=$(shell find -type f -name '*.mm' )
+TESTSRCS=$(shell find -type f -name '*.ms' )
 TARGET := $(addsuffix .pdf,$(basename $(TESTSRCS)))
 
 all: run
 
 run: ${TESTSRCS}
-	./source-highlight.pl $<
+	./ghighlight.pl $<
 
 %.pdf: %.ms
-	./source-highlight.pl $< | groff -Tps -w w -ms > $@
+	./ghighlight.pl $< | groff -Tps -w w -ms > $@
 
 test: ${TARGET}
-	zathura $<
-
-open: test.pdf
 	zathura $<
 
 clean:
