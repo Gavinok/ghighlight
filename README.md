@@ -18,7 +18,7 @@ You will need the following programs installed:
 
 ### Installing
 
-Simply add source-highlight.pl to your path 
+Simply add ghighlight.pl to your path 
 
 ## Usage
 
@@ -42,7 +42,7 @@ print $line;
 ```
 
 ```
-source-highlite.pl FILE.ms | groff -T pdf -ms > output.pdf
+ghighlight.pl FILE.ms | groff -T pdf -ms > output.pdf
 ```
 
 ![Output](./demo.png)
@@ -54,7 +54,7 @@ Please read [CONTRIBUTING.md](https://github.com/Gavinok/ghighlight/contributing
 
 ## Todo
 - [ ] Toggling (bold instead of color)
-- [ ] Arguments to specify language in case Source-highlight doesn't recognize it
+- [ ] Arguments to specify language in case source-highlight doesn't recognize it
 - [ ] Correct error messages
 - [ ] Support for mom macros
 
