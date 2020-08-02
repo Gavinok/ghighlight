@@ -26,4 +26,3 @@ print $line;
 
 .LP
 just make sure this prints
-
