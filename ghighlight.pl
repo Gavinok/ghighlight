@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 
-# gperl - add Python part to groff files, this is the preprocessor for that
+# ghighlight - A simple preprocessor for adding code highlighting in a groff file
 
 # Copyright (C) 2014-2018 Free Software Foundation, Inc.
 
@@ -8,7 +8,7 @@
 
 my $version = '1.2.6';
 
-# This file is part of 'gperl', which is part of 'groff'.
+# This file is part of 'ghighlight', which is part of 'groff'.
 
 # 'groff' is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
@@ -73,8 +73,8 @@ my $file_perl_test_pl;
 my $groffer_libdir;
 
 if ($before_make) {
-  my $gperl_source_dir = $FindBin::Bin;
-  $at_at{'BINDIR'} = $gperl_source_dir;
+  my $highlight_source_dir = $FindBin::Bin;
+  $at_at{'BINDIR'} = $highlight_source_dir;
   $at_at{'G'} = '';
 } else {
   $at_at{'BINDIR'} = '@BINDIR@';
@@ -88,15 +88,15 @@ if ($before_make) {
 
 foreach (@ARGV) {
   if ( /^(-h|--h|--he|--hel|--help)$/ ) {
-    print q(Usage for the 'gperl' program:);
-    print 'gperl [-] [--] [filespec...] normal file name arguments';
-    print 'gperl [-h|--help]        gives usage information';
-    print 'gperl [-v|--version]     displays the version number';
-    print q(This program is a 'groff' preprocessor that handles Python ) .
+    print q(Usage for the 'ghighlight' program:);
+    print 'ghighlight [-] [--] [filespec...] normal file name arguments';
+    print 'ghighlight [-h|--help]        gives usage information';
+    print 'ghighlight [-v|--version]     displays the version number';
+    print q(This program is a 'groff' preprocessor that handles highlighting source code ) .
       q(parts in 'roff' files.);
     exit;
   } elsif ( /^(-v|--v|--ve|--ver|--vers|--versi|--versio|--version)$/ ) {
-    print q('gperl' version ) . $version;
+    print q('ghighlight' version ) . $version;
     exit;
   }
 }
@@ -108,7 +108,7 @@ foreach (@ARGV) {
 
 my $out_file;
 {
-  my $template = 'gperl_' . "$$" . '_XXXX';
+  my $template = 'ghighlight_' . "$$" . '_XXXX';
   my $tmpdir;
   foreach ($ENV{'GROFF_TMPDIR'}, $ENV{'TMPDIR'}, $ENV{'TMP'}, $ENV{'TEMP'},
 	   $ENV{'TEMPDIR'}, 'tmp', $ENV{'HOME'},
@@ -174,7 +174,7 @@ foreach (<>) {
   # now the line must be a SOURCE ending line (stop)
 
   unless ( $source_mode ) {
-    print STDERR 'source-highlight.pl: there was a Python ending without being in ' .
+    print STDERR 'ghighlight.pl: there was a Python ending without being in ' .
       'SOURCE mode:';
     print STDERR '    ' . $line;
     next;
@@ -190,55 +190,56 @@ foreach (<>) {
   print $sourcecode;
   my @print_res = (1);
 
+  # Start argument processing
+
   # remove 'stop' arg if exists
   shift @args if ( $args[0] eq 'stop' );
 
-  if ( @args == 0 ) {
-    # no args for saving, so @print_res doesn't matter
-    next;
-  }
-  my @var_names = ();
-  my @mode_names = ();
+  # if ( @args == 0 ) {
+  #   # no args for saving, so @print_res doesn't matter
+  #   next;
+  # }
+  # my @var_names = ();
+  # my @mode_names = ();
 
-  my $mode = '.ds';
-  for ( @args ) {
-    if ( /^\.?ds$/ ) {
-      $mode = '.ds';
-      next;
-    }
-    if ( /^\.?nr$/ ) {
-      $mode = '.nr';
-      next;
-    }
-    push @mode_names, $mode;
-    push @var_names, $_;
-  }
+  # my $mode = '.ds';
+  # for ( @args ) {
+  #   if ( /^\.?ds$/ ) {
+  #     $mode = '.ds';
+  #     next;
+  #   }
+  #   if ( /^\.?nr$/ ) {
+  #     $mode = '.nr';
+  #     next;
+  #   }
+  #   push @mode_names, $mode;
+  #   push @var_names, $_;
+  # }
 
-  my $n_res = @print_res;
-  my $n_vars = @var_names;
+  # my $n_vars = @var_names;
 
-  if ( $n_vars < $n_res ) {
-    print STDERR 'gperl: not enough variables for Python part: ' .
-      $n_vars . ' variables for ' . $n_res . ' output lines.';
-  } elsif ( $n_vars > $n_res ) {
-    print STDERR 'gperl: too many variablenames for Python part: ' .
-      $n_vars . ' variables for ' . $n_res . ' output lines.';
-  }
-  if ( $n_vars < $n_res ) {
-    print STDERR 'gperl: not enough variables for Python part: ' .
-      $n_vars . ' variables for ' . $n_res . ' output lines.';
-  }
+  # if ( $n_vars < $n_res ) {
+  #   print STDERR 'ghighlight: not enough variables for Python part: ' .
+  #     $n_vars . ' variables for ' . $n_res . ' output lines.';
+  # } elsif ( $n_vars > $n_res ) {
+  #   print STDERR 'ghighlight: too many variablenames for Python part: ' .
+  #     $n_vars . ' variables for ' . $n_res . ' output lines.';
+  # }
+  # if ( $n_vars < $n_res ) {
+  #   print STDERR 'ghighlight: not enough variables for Python part: ' .
+  #     $n_vars . ' variables for ' . $n_res . ' output lines.';
+  # }
 
-  my $n_min = $n_res;
-  $n_min = $n_vars if ( $n_vars < $n_res );
-  exit unless ( $n_min );
-  $n_min -= 1; # for starting with 0
+  # my $n_min = $n_res;
+  # $n_min = $n_vars if ( $n_vars < $n_res );
+  # exit unless ( $n_min );
+  # $n_min -= 1; # for starting with 0
 
-  for my $i ( 0..$n_min ) {
-    my $value = $print_res[$i];
-    chomp $value;
-    print $mode_names[$i] . ' ' . $var_names[$i] . ' ' . $value;
-  }
+  # for my $i ( 0..$n_min ) {
+  #   my $value = $print_res[$i];
+  #   chomp $value;
+  #   print $mode_names[$i] . ' ' . $var_names[$i] . ' ' . $value;
+  # }
 }
 
 
