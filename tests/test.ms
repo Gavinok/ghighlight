@@ -4,25 +4,9 @@ This Is A Heading
 this is a paragraph
 
 .\" start source code block
-.SOURCE
+.SOURCE start
 #! /usr/bin/env perl
 
 my $version = 'This is a source code block';
-print $line;
+print $line; 
 .SOURCE stop
-.\" end source code block
-
-.LP
-just make sure this prints
-
-.\" this is another code block in c
-.SOURCE
-#! /usr/bin/env perl
-
-my $version = 'This is a source code block';
-print $line;
-.SOURCE stop
-.\" end source code block
-
-.LP
-just make sure this prints
