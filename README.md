@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
 Please read [CONTRIBUTING.md](https://github.com/Gavinok/ghighlight/contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Todo
-- [ ] Toggling (bold instead of color)
-- [ ] Arguments to specify language in case source-highlight doesn't recognize it
-- [ ] Correct error messages
+- [ ] Toggling (color instead of bold )
+- [x] Arguments to specify language in case source-highlight doesn't recognize it
+- [x] Correct error messages
 - [ ] Support for mom macros
 
 ## Authors
