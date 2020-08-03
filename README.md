@@ -22,7 +22,7 @@ Simply add ghighlight.pl to your path
 
 ## Usage
 
-Inside your groff file add `.SOURCE start` and `.SOURCE stop` to start and stop a source code section. source-highlight will automatically detect the syntax based on the source code inside the block. The 
+Inside your groff file add `.SOURCE start`  and `.SOURCE stop` to start and stop a source code section. source-highlight will automatically detect the syntax based on the source code inside the block. The stop in `.SOURCE stop` is optional and can be replaced with `.SOURCE`
 
 FILE.ms
 ```{roff}
@@ -45,7 +45,7 @@ print $line;
 ghighlight.pl FILE.ms | groff -T pdf -ms > output.pdf
 ```
 
-To specify a syntax use `.SOURCE <language`
+To specify a syntax use `.SOURCE <language>`
 ```{roff}
 .SOURCE c
 #include <stdio.h>
