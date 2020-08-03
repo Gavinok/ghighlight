@@ -129,11 +129,13 @@ my $out_file;
 
 my $source_mode = 0;
 
+# language for codeblocks
+my $lang = '';
 foreach (<>) {
   chomp;
   s/\s+$//;
   my $line = $_;
-  my $is_dot_Source = $line =~ /^[.']\s*SOURCE(|\s+.*)$/;
+  my $is_dot_Source = $line =~ /^[.']\s*(``|SOURCE)(|\s+.*)$/;
 
   unless ( $is_dot_Source ) {	# not a '.SOURCE' line
     if ( $source_mode ) {		# is running in SOURCE mode
@@ -150,18 +152,24 @@ foreach (<>) {
 
   my $args = $line;
   $args =~ s/\s+$//;	# remove final spaces
-  $args =~ s/^[.']\s*SOURCE\s*//;	# omit .SOURCE part, leave the arguments
+  $args =~ s/^[.']\s*(``|SOURCE)\s*//;	# omit .source part, leave the arguments
 
   my @args = split /\s+/, $args;
 
+
   ##########
   # start SOURCE mode
-  if ( @args == 0 || @args == 1 && $args[0] eq 'start' ) {
-    # For '.SOURCE' no args or first arg 'start' means opening 'SOURCE' mode.
+  if ( @args == 1 && $args[0] ne 'stop' ) {
+
+  	# shift @args if ( $args[0] eq 'start' );
+	if (@args == 1) {
+		$lang = $args[0];
+	}
+    # For '.``' no args or first arg 'start' means opening 'SOURCE' mode.
     # Everything else means an ending command.
     if ( $source_mode ) {
       # '.SOURCE' was started twice, ignore
-      print STDERR q('.SOURCE' starter was run several times);
+      print STDERR q('.``' starter was run several times);
       next;
     } else {	# new SOURCE start
       $source_mode = 1;
@@ -174,7 +182,7 @@ foreach (<>) {
   # now the line must be a SOURCE ending line (stop)
 
   unless ( $source_mode ) {
-    print STDERR 'ghighlight.pl: there was a Python ending without being in ' .
+    print STDERR 'ghighlight.pl: there was a SOURCE ending without being in ' .
       'SOURCE mode:';
     print STDERR '    ' . $line;
     next;
@@ -184,16 +192,22 @@ foreach (<>) {
   close OUT;		# close the storing of 'SOURCE' commands
 
   ##########
-  # run source-highlight on file
-  # array stores prints with \n
-  my $sourcecode = `source-highlight -f groff_mm_color  --output STDOUT -i $out_file`;
+  # Run source-highlight on file
+  my $sourcecode = '';
+  # Check if language was specified
+  if ($lang ne '') {
+    $sourcecode = `source-highlight -s $lang -f groff_mm --output STDOUT -i $out_file`;
+  } else {
+    $sourcecode = `source-highlight -f groff_mm_ --output STDOUT -i $out_file`;
+  }
+
   print $sourcecode;
   my @print_res = (1);
 
   # Start argument processing
 
   # remove 'stop' arg if exists
-  shift @args if ( $args[0] eq 'stop' );
+  # shift @args if ( $args[0] eq 'stop' );
 
   # if ( @args == 0 ) {
   #   # no args for saving, so @print_res doesn't matter
