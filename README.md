@@ -32,7 +32,7 @@ This Is A Heading
 this is a paragraph
 
 .\" start source code block
-.SOURCE
+.SOURCE start
 #! /usr/bin/env perl
 
 my $version = 'This is a source code block';
