@@ -11,7 +11,7 @@ This project is currently in alpha stages and still needs work before it is func
 
 You will need the following programs installed:
 
-- Perl (only tested on 5.8)
+- Perl (only tested on 5.3)
 - GNU Source-highlight
 - Groff
 
