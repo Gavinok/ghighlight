@@ -1,7 +1,9 @@
 .defcolor darkblue rgb #000999
 .defcolor darkred rgb #700000
-.NH
-This Is A Heading
+.defcolor darkgreen rgb #700000
+.defcolor brown rgb #700000
+.defcolor purple rgb #700000
+.defcolor pink rgb #700000
 .LP
 this is a paragraph
 
