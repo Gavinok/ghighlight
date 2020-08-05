@@ -16,6 +16,7 @@ run: ${TESTSRCS}
 
 test: ${TARGET}
 	zathura $<
+	make clean
 
 clean:
 	rm -f ${PDFS}
