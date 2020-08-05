@@ -1,4 +1,5 @@
-.defcolor darkred rgb 0 0.2 0.9
+.defcolor darkblue rgb #000999
+.defcolor darkred rgb #700000
 .NH
 This Is A Heading
 .LP
