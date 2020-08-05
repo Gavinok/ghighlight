@@ -18,7 +18,7 @@ You will need the following programs installed:
 
 ### Installing
 
-Simply add ghighlight.pl to your path 
+Simply add ghighlight.pl to your PATH 
 
 ## Usage
 
