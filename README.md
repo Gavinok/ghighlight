@@ -24,6 +24,18 @@ Simply add ghighlight.pl to your path
 
 Inside your groff file add `.SOURCE start`  and `.SOURCE stop` to start and stop a source code section. source-highlight will automatically detect the syntax based on the source code inside the block. The stop in `.SOURCE stop` is optional and can be replaced with `.SOURCE`
 
+By default ghighlight uses black and white mode to enable color simple set the environmental `GHLENABLECOLOR=1` warning color support is still buggy.
+
+For global use add this to your bashrc or zshrc
+```{sh}
+export GHLENABLECOLOR=1
+```
+
+For one time use 
+```{sh}
+GHLENABLECOLOR=1 && ghighlight.pl $< | groff ... > OUTPUTFILE
+```
+
 FILE.ms
 ```{roff}
 .NH
@@ -83,7 +95,7 @@ int main(int argc, char *argv[])
 Please read [CONTRIBUTING.md](https://github.com/Gavinok/ghighlight/contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Todo
-- [ ] Toggling (color instead of bold )
+- [x] Toggling (color instead of bold ) (using ENV ENABLECOLORS)
 - [x] Arguments to specify language in case source-highlight doesn't recognize it
 - [x] Correct error messages
 - [ ] Support for mom macros

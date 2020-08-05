@@ -6,7 +6,7 @@
 
 # Written by Bernd Warken <groff-bernd.warken-72@web.de>.
 
-my $version = '1.2.6';
+my $version = '0.9.0';
 
 # This file is part of 'ghighlight', which is part of 'groff'.
 
@@ -122,7 +122,10 @@ my $out_file;
   $out_file = File::Spec->catfile($tmpdir, $template);
 }
 
-
+my $macros = "groff_mm";
+if ( $ENV{'GHLENABLECOLOR'} ) {
+	$macros = "groff_mm_color";
+} 
 ########################################################################
 # input
 ########################################################################
@@ -196,9 +199,9 @@ foreach (<>) {
   my $sourcecode = '';
   # Check if language was specified
   if ($lang ne '') {
-    $sourcecode = `source-highlight -s $lang -f groff_mm --output STDOUT -i $out_file`;
+    $sourcecode = `source-highlight -s $lang -f $macros --output STDOUT -i $out_file`;
   } else {
-    $sourcecode = `source-highlight -f groff_mm_ --output STDOUT -i $out_file`;
+    $sourcecode = `source-highlight -f $macros --output STDOUT -i $out_file`;
   }
 
   print $sourcecode;
