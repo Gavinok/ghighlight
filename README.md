@@ -113,3 +113,10 @@ This project is licensed under the GNU General Public License - see the [LICENSE
 ## Acknowledgments
 
 * gperl written by Bernd Warken was used as the basis for this project
+  * Contains a similar .\`\` macro for source code that inspired the preprocessor macro
+
+## Similar works
+* [ugrid](https://github.com/pjfichet/ugrind) A troff pre-processor to highlight blocks of code. Fork of Vgrind and Vfontdrp.
+* [Mono](https://github.com/Alhadis/Mono) Troff macros for the 21st century.
+  * Contains a similar .\`\` macro for source code that inspired the preprocessor macro
+* [mom macros](http://schaffter.ca/mom/momdoc/docelement.html#code) has support for in line code blocks.
