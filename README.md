@@ -27,17 +27,17 @@ Inside your groff file add `.SOURCE start`  and `.SOURCE stop` to start and stop
 By default ghighlight uses black and white mode to enable color simple set the environmental `GHLENABLECOLOR=1` warning color support is still buggy.
 
 For global use add this to your bashrc or zshrc
-```{sh}
+```sh
 export GHLENABLECOLOR=1
 ```
 
 For one time use 
-```{sh}
+```sh
 GHLENABLECOLOR=1 && ghighlight.pl $< | groff ... > OUTPUTFILE
 ```
 
 FILE.ms
-```{roff}
+```roff
 .NH
 This Is A Heading
 .LP
@@ -53,12 +53,12 @@ print $line;
 .\" end source code block
 ```
 
-```{sh}
+```sh
 ghighlight.pl FILE.ms | groff -T pdf -ms > output.pdf
 ```
 
 To specify a syntax use `.SOURCE <language>`
-```{roff}
+```roff
 .SOURCE c
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 ```
 
 An alternatives to `.SOURCE is .\`\`` used like so
-```{roff}
+```roff
 .`` c
 #include <stdio.h>
 #include <stdlib.h>
