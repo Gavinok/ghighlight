@@ -11,6 +11,9 @@ all: run
 run: ${TESTSRCS}
 	perl -Mstrict -Mdiagnostics -cw ghighlight.pl $<
 
+man: ${TESTSRCS}
+	export GHLENABLECOLOR=1 && ./ghighlight.pl $< | groff -Tascii -w w -ms
+
 %.pdf: %.ms
 	./ghighlight.pl $< | groff -Tps -w w -ms > ./$@
 
