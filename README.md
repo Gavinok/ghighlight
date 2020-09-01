@@ -33,7 +33,7 @@ export GHLENABLECOLOR=1
 
 For one time use 
 ```sh
-GHLENABLECOLOR=1 && ghighlight.pl $< | groff ... > OUTPUTFILE
+GHLENABLECOLOR=1 && ghighlight.pl INPUTFILE.ms | groff ... > OUTPUTFILE
 ```
 
 FILE.ms
