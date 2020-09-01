@@ -19,7 +19,8 @@ man: ${TESTSRCS}
 
 test: ${TARGET}
 	zathura $<
-	make clean
+	# recursivly call make
+	$(MAKE) clean
 
 clean:
 	rm -f ${PDFS}
