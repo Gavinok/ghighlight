@@ -1,3 +1,5 @@
+.so ./tests/test2.ms
+
 .defcolor darkblue rgb #000999
 .defcolor darkred rgb #700000
 .defcolor darkgreen rgb #700000

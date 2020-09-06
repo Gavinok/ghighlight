@@ -1,7 +1,7 @@
 #.SUFFIXES:
 .SUFFIXES: .ms .pdf
 
-TESTSRCS=$(shell find -type f -name '*.ms' )
+TESTSRCS=test.ms
 TARGET := $(addsuffix .pdf,$(basename $(TESTSRCS)))
 TESTDIR=test
 PDFS=$(shell find -type f -name '*.pdf' )
@@ -15,7 +15,7 @@ man: ${TESTSRCS}
 	export GHLENABLECOLOR=1 && ./ghighlight.pl $< | groff -Tascii -w w -ms
 
 %.pdf: %.ms
-	./ghighlight.pl $< | groff -Tps -w w -ms > ./$@
+	soelim $< | ./ghighlight.pl | groff -Tpdf -w w -ms > $@
 
 test: ${TARGET}
 	zathura $<
