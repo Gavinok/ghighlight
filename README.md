@@ -89,6 +89,10 @@ int main(int argc, char *argv[])
 
 ![Output](./demo.png)
 
+if you are using ".so"-makros in your files, you must combine the files beforehand using **soelim**, e.g.:
+
+`soelim MAIN.ms | ghighlight.pl | groff -Tpdf > MAIN.pdf`
+
 
 ## Contributing
 
