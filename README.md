@@ -18,7 +18,11 @@ You will need the following programs installed:
 
 ### Installing
 
-Simply add ghighlight.pl to your PATH 
+Edit the Makefile and set the PREFIX for ghighlight to be installed. Then 
+
+``` sh
+sudo make install
+```
 
 ## Usage
 
@@ -33,7 +37,7 @@ export GHLENABLECOLOR=1
 
 For one time use 
 ```sh
-GHLENABLECOLOR=1 && ghighlight.pl INPUTFILE.ms | groff ... > OUTPUTFILE
+GHLENABLECOLOR=1 && ghighlight INPUTFILE.ms | groff ... > OUTPUTFILE
 ```
 
 FILE.ms
@@ -54,7 +58,7 @@ print $line;
 ```
 
 ```sh
-ghighlight.pl FILE.ms | groff -T pdf -ms > output.pdf
+ghighlight FILE.ms | groff -T pdf -ms > output.pdf
 ```
 
 To specify a syntax use `.SOURCE <language>`
@@ -91,7 +95,7 @@ int main(int argc, char *argv[])
 
 if you are using ".so"-makros in your files, you must combine the files beforehand using **soelim**, e.g.:
 
-`soelim MAIN.ms | ghighlight.pl | groff -Tpdf > MAIN.pdf`
+`soelim MAIN.ms | ghighlight | groff -Tpdf > MAIN.pdf`
 
 
 ## Contributing
@@ -103,6 +107,9 @@ Please read [CONTRIBUTING.md](https://github.com/Gavinok/ghighlight/contributing
 - [x] Arguments to specify language in case source-highlight doesn't recognize it
 - [x] Correct error messages
 - [ ] Support for mom macros
+
+## Breaking Changes
+* Makefile now removes the .pl from ghighlight.pl
 
 ## Authors
 
