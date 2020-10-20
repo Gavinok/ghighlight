@@ -1,0 +1,22 @@
+<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 832.32 76.32">
+<ellipse cx="56" cy="38" rx="54" ry="36"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="56" y="38" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">document</text>
+<polygon points="182,38 170,42 170,33" style="fill:rgb(0,0,0)"/>
+<path d="M110,38L176,38"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M182,74L290,74L290,2L182,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="236" y="38" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">ghighlight</text>
+<polygon points="362,38 350,42 350,33" style="fill:rgb(0,0,0)"/>
+<path d="M290,38L356,38"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M362,74L470,74L470,2L362,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);stroke-dasharray:7.2,7.2;" />
+<text x="416" y="28" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">tbl/eqn/pic ...</text>
+<text x="416" y="48" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">optional</text>
+<polygon points="542,38 530,42 530,33" style="fill:rgb(0,0,0)"/>
+<path d="M470,38L536,38"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M542,74L650,74L650,2L542,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="596" y="38" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Groff</text>
+<polygon points="722,38 710,42 710,33" style="fill:rgb(0,0,0)"/>
+<path d="M650,38L716,38"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M722,74L830,74L830,2L722,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="776" y="38" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">typsetter</text>
+</svg>
+

@@ -57,6 +57,8 @@ print $line;
 .\" end source code block
 ```
 
+![Usage Diagram](/image/diagram.svg)
+
 ```sh
 ghighlight FILE.ms | groff -T pdf -ms > output.pdf
 ```
