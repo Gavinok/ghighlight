@@ -1,22 +1,22 @@
-<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 748.742 54.72">
+<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 604.742 54.72">
 <ellipse cx="49" cy="27" rx="47.232" ry="15.12"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
 <text x="49" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">document</text>
-<polygon points="168,27 157,31 157,23" style="fill:rgb(0,0,0)"/>
-<path d="M96,27L162,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
-<path d="M168,42L266,42L266,12L168,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
-<text x="217" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">ghighlight</text>
-<polygon points="338,27 327,31 327,23" style="fill:rgb(0,0,0)"/>
-<path d="M266,27L333,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
-<path d="M338,52L461,52L461,2L338,2Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);stroke-dasharray:7.2,7.2;" />
-<text x="400" y="17" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">tbl/eqn/pic ...</text>
-<text x="400" y="37" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">optional</text>
-<polygon points="533,27 522,31 522,23" style="fill:rgb(0,0,0)"/>
-<path d="M461,27L527,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
-<path d="M533,42L587,42L587,12L533,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
-<text x="560" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Groff</text>
-<polygon points="659,27 647,31 647,23" style="fill:rgb(0,0,0)"/>
-<path d="M587,27L653,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
-<path d="M659,42L746,42L746,12L659,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
-<text x="702" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">typsetter</text>
+<polygon points="132,27 121,31 121,23" style="fill:rgb(0,0,0)"/>
+<path d="M96,27L126,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M132,42L230,42L230,12L132,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="181" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">ghighlight</text>
+<polygon points="266,27 255,31 255,23" style="fill:rgb(0,0,0)"/>
+<path d="M230,27L261,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M266,52L389,52L389,2L266,2Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);stroke-dasharray:7.2,7.2;" />
+<text x="328" y="17" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">tbl/eqn/pic ...</text>
+<text x="328" y="37" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">optional</text>
+<polygon points="425,27 414,31 414,23" style="fill:rgb(0,0,0)"/>
+<path d="M389,27L419,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M425,42L479,42L479,12L425,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="452" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">Groff</text>
+<polygon points="515,27 503,31 503,23" style="fill:rgb(0,0,0)"/>
+<path d="M479,27L509,27"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />
+<path d="M515,42L602,42L602,12L515,12Z"  style="fill:rgb(255,255,255);stroke-width:2.16;stroke:rgb(0,0,0);" />
+<text x="558" y="27" text-anchor="middle" fill="rgb(0,0,0)" dominant-baseline="central">typsetter</text>
 </svg>
 
