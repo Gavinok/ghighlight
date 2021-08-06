@@ -99,6 +99,40 @@ if you are using ".so"-makros in your files, you must combine the files beforeha
 
 `soelim MAIN.ms | ghighlight | groff -Tpdf > MAIN.pdf`
 
+## Source Arguments
+
+Currently, two instructions are available to customize your code display: `ps` and `vs`.
+
+```roff
+.\" There I change the font size and the spacing between lines.
+.`` c ps=7 vs=9p
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    printf("hello\n");
+    return 0;
+}
+.``
+```
+
+## Environment variables
+
+* GH_INTRO: troff instructions **before** each source code provided by source-highlight
+* GH_OUTRO: troff instructions **after** each source code provided by source-highlight
+
+Both GH_INTRO and GH_OUTRO: values are separated by ';'.
+
+Example:
+
+`GH_INTRO=".DS I;.fam C" GH_OUTRO=".fam;.DE" ghighlight file.ms | ...`
+
+* SHOPTS: cmd line parameter given to source-highlight
+
+Example:
+
+`SHOPTS="--outlang-def=./my-groff-output.def" ghighlight file.ms | ...`
 
 ## Contributing
 

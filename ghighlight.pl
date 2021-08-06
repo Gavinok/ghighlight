@@ -29,6 +29,8 @@ use strict;
 use warnings;
 #use diagnostics;
 
+use v5.30;
+
 # temporary dir and files
 use File::Temp qw/ tempfile tempdir /;
 
@@ -132,8 +134,24 @@ if ( $ENV{'GHLENABLECOLOR'} ) {
 
 my $source_mode = 0;
 
+
+sub getTroffLine {
+  my ($opt) = @_;
+  if ($opt =~ /^ps=([0-9]+)/) {".ps $1"}
+  elsif ($opt =~ /^vs=(\S+)/) {".vs $1"}
+  else { print STDERR "didn't recognised '$opt'"; ""}
+}
+
+sub getTroffLineOpposite {
+  my ($opt) = @_;
+  if ($opt =~ /^ps=/) {".ps"}
+  elsif ($opt =~ /^vs=/) {".vs"}
+  else { print STDERR "didn't recognised '$opt'"; ""}
+}
+
 # language for codeblocks
 my $lang = '';
+my @options = ();
 foreach (<>) {
   chomp;
   s/\s+$//;
@@ -159,17 +177,18 @@ foreach (<>) {
 
   my @args = split /\s+/, $args;
 
-
   ##########
   # start SOURCE mode
-  if ( @args == 1 && $args[0] ne 'stop' ) {
 
-  	# shift @args if ( $args[0] eq 'start' );
-	if (@args == 1) {
-		$lang = $args[0];
-	}
+  $lang = $args[0] if ( @args > 0 && $args[0] ne 'stop' );
+
+  if ( @args > 0 && $args[0] ne 'stop' ) {
     # For '.``' no args or first arg 'start' means opening 'SOURCE' mode.
     # Everything else means an ending command.
+
+    shift @args;
+    @options = @args;
+
     if ( $source_mode ) {
       # '.SOURCE' was started twice, ignore
       print STDERR q('.``' starter was run several times);
@@ -194,17 +213,36 @@ foreach (<>) {
   $source_mode = 0;	# 'SOURCE' stop calling is correct
   close OUT;		# close the storing of 'SOURCE' commands
 
+  my $shopts = $ENV{"SHOPTS"} || "";
   ##########
   # Run source-highlight on file
   my $sourcecode = '';
   # Check if language was specified
   if ($lang ne '') {
-    $sourcecode = `source-highlight -s $lang -f $macros --output STDOUT -i $out_file`;
+    $sourcecode = `source-highlight -s $lang -f $macros $shopts --output STDOUT -i $out_file`;
   } else {
-    $sourcecode = `source-highlight -f $macros --output STDOUT -i $out_file`;
+    $sourcecode = `source-highlight -f $macros $shopts --output STDOUT -i $out_file`;
+  }
+
+  if (my $v = $ENV{"GH_INTRO"}) {
+    print for split /;/, $v;
+  }
+
+  for (@options) {
+    my $l = getTroffLine $_;
+    print $l if ($l ne "");
   }
 
   print $sourcecode;
+
+  for (reverse @options) {
+    my $l = getTroffLineOpposite $_;
+    print $l if ($l ne "");
+  }
+
+  if (my $v = $ENV{"GH_OUTRO"}) {
+    print for split /;/, $v;
+  }
   my @print_res = (1);
 
   # Start argument processing
