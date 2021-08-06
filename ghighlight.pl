@@ -29,8 +29,6 @@ use strict;
 use warnings;
 #use diagnostics;
 
-use v5.30;
-
 # temporary dir and files
 use File::Temp qw/ tempfile tempdir /;
 
