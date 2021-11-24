@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 .LP
 just make sure this prints
 
-.`` c
+.`` c ps=14 vs=16p
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
